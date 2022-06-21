@@ -5,3 +5,10 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
+variable "path_to_func_src" {
+  description = "Path to source code for lambda function."
+
+  type    = string
+  default = "../../.."
+}
+
