@@ -1,11 +1,5 @@
-variable "aws_region" {
-  description = "AWS region for all resources."
-  type    = string
-  default = "us-east-1"
-}
-
 variable "path_to_lambda_dir" {
-  description = "Path to directory lambda function."
+  description = "Path to directory of lambda function."
   type    = string
   default = "./"
 }
@@ -17,7 +11,7 @@ variable "lambda_dir_name" {
 }
 
 variable "function_name" {
-  description = "Name of function"
+  description = "Name you want to give to the function in AWS"
   type    = string
 }
 
@@ -28,7 +22,7 @@ variable "runtime" {
 }
 
 variable "handler" {
-  description = "Runtime for executing lambda function."
+  description = "Name of handler method"
   type    = string
   default = "hello.handler"
 }
