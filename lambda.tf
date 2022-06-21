@@ -8,20 +8,20 @@ resource "aws_s3_object" "lambda_hello_world" {
   # Need to give bucket id
   bucket = aws_s3_bucket.lambda_bucket.id
 
-  key    = "hello-world.zip"
+  key    = "${var.lambda_dir_name}.zip"
   source = data.archive_file.lambda_hello_world.output_path
 
   etag = filemd5(data.archive_file.lambda_hello_world.output_path)
 }
 
 resource "aws_lambda_function" "hello_world" {
-  function_name = "HelloWorld"
+  function_name = var.function_name
 
   s3_bucket = aws_s3_bucket.lambda_bucket.id
   s3_key    = aws_s3_object.lambda_hello_world.key
 
-  runtime = "nodejs12.x"
-  handler = "hello.handler"
+  runtime = var.runtime
+  handler = var.handler
 
   source_code_hash = data.archive_file.lambda_hello_world.output_base64sha256
 
