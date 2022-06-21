@@ -9,6 +9,6 @@ variable "path_to_func_src" {
   description = "Path to source code for lambda function."
 
   type    = string
-  default = "../../.."
+  default = "./"
 }
 
